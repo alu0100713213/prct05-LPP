@@ -28,6 +28,26 @@ class Fraccion
 	   	Fraccion.new(@numerador + num1,  @denominador + denom1)
 	   end
         end
+
+	/** Función para sobrecargar el operador * */	
+	def *(num1, denom1)
+	   if(denom1 != @denominador)
+           
+	   end
+           else if(denom1 == @denominador)	   {
+	   	Fraccion.new(@numerador * num1,  @denominador * denom1)
+	   end
+        end
+
+	/** Función para sobrecargar el operador * */	
+	def /(num1, denom1)
+	   if(denom1 != @denominador)
+           
+	   end
+           else if(denom1 == @denominador)	   {
+	   	Fraccion.new(@numerador / num1,  @denominador / denom1)
+	   end
+        end
 end
 
 
