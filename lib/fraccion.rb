@@ -56,6 +56,7 @@ class Fraccion
 				Fraccion.new(@numerador / num1,  @denominador / denom1)
 		  end
 		end
+
 		def gcd(n, d)
 			n1, n2 = n.abs, d.abs
 			gcd = 1
@@ -68,10 +69,9 @@ class Fraccion
 			end
 			return gcd
 		end
+
 		def mcm(a, b)
 			aux = gcd(a,b)
 			(a/aux)*b
 		end
 end
-
-puts 'Fr'
