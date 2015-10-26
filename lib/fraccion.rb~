@@ -3,7 +3,7 @@ class Fraccion
 
 		# Función para inicializar
 		def initialize(numerador, denominador)
-			#simp = gcd(n,d)
+			simp = gcd(n,d)
 			@numerador, @denominador = numerador, denominador
 		end
 
