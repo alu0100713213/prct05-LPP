@@ -5,20 +5,24 @@ class TestFraccion < Test::Unit::TestCase
   def setup
     @first = Fraccion.new(5,10)
     @second = Fraccion.new(2,5)
+    @third = Fraccion.new(-5,-10)
   end
-  def test_simple
+  def test_identidad
     assert_equal("(5,10)", @first.to_s)    # Test de Identidad
-    assert_equal("(9,15)", (@first + @second).to_s)    # Test de Suma
-
-    #assert_equal("(-1,-1)", (-@unidad).to_s)    # Test de Resta
- #   assert_equal("(25,50)", (@first*5).to_s)    # Test de Multiplicación
   end
 
-# def test_type_check
- #   assert_raise(RuntimeError) {Fraccion.new('2','5')}
- # end
- # def test_failure
- #   assert_equal("(50,25)", (@origen * 5).to_s, "Producto escalar")
- # end
-end
+  def test_operaciones
+    assert_equal("(9,10)", (@first + @second).to_s)    # Test de Suma
+    assert_equal("(1,10)", (@first - @second).to_s)    # Test de Resta
+    assert_equal("(10,50)", (@first*@second).to_s)    # Test de Multiplicación
+    assert_equal("(10,50)", (@first*@second).to_s)    # Test de División
+  end
 
+  def test_abs
+    assert_equal("(5,10)", (@third.absoluto).to_s) # Test valor absoluto
+  end
+
+  def test_inverso
+    assert_equal("(-10,-5)", (@third.inverso).to_s)  # Test de inverso
+  end
+end

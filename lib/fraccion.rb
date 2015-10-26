@@ -12,51 +12,57 @@ class Fraccion
 			"(#{@numerador},#{@denominador})"
 		end
 
-		def numerador()
-			@numerador
+		# Función que devuelve el numerador
+		def get_numerador()
+			return @numerador
 		end
 
-		def denominador()
-			@denominador
+		# Función que devuelve el denominador
+		def get_denominador()
+			return @denominador
 		end
 
+		# Función valor absoluto
 		def absoluto()
-				Fraccion.new(@numerador.abs, @denominador.abs)
+			return Fraccion.new(@numerador.abs, @denominador.abs)
 		end
 
+		# Función para invertir una fracción
 		def inverso()
-				Fraccion.new(@denominador, @numerador)
+				return Fraccion.new(@denominador, @numerador)
 		end
 
 		# Función para sobrecargar el operador +
 		def +(object)
-			if(denom1 != @denominador)
+			if(object.denominador != @denominador)
 				aux = mcm(@denominador, object.denominador)
 				return Fraccion.new((((aux*@numerador)/(@denominador))+(aux*object.numerador)/object.denominador),aux)
 			end
+		else
+			return Fraccion.new(@numerador+object.numerador, @denominador+object.denominador)
 		end
 
 		# Función para sobrecargar el operador -
-		def -(num1, denom1)
-			if(denom1 == @denominador)
-				Fraccion.new(@numerador + num1,  @denominador + denom1)
+		def -(object)
+			if(object.denominador != @denominador)
+				aux = mcm(@denominador, object.denominador)
+				return Fraccion.new((((aux*@numerador)/(@denominador))-(aux*object.numerador)/object.denominador),aux)
 			end
+		else
+			return Fraccion.new(@numerador+object.numerador, @denominador+object.denominador)
 		end
 
 		# Función para sobrecargar el operador
-		def *(num1, denom1)
-			if(denom1 == @denominador)
-		  	Fraccion.new(@numerador * num1,  @denominador * denom1)
-			end
+		def *(object)
+			return Fraccion.new(@numerador*object.numerador, @denominador*object.denominador)
 		end
 
 		# Función para sobrecargar el operador
-		def /(num1, denom1)
-			if(denom1 == @denominador)
-				Fraccion.new(@numerador / num1,  @denominador / denom1)
-		  end
+		def /(object)
+			return Fraccion.new(@numerador*object.denominador, @denominador*object.nominador )
 		end
 
+		# Función para buscar un numero minimo multiplo
 		def gcd(n, d)
 			n1, n2 = n.abs, d.abs
 			gcd = 1
@@ -70,6 +76,7 @@ class Fraccion
 			return gcd
 		end
 
+		# Función para minimo comun multiplo
 		def mcm(a, b)
 			aux = gcd(a,b)
 			(a/aux)*b

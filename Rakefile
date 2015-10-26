@@ -5,8 +5,7 @@ task :tu do
   sh "ruby -I. test/tc_fraccion.rb"
 end
 
-desc "Ejecutar solo las pruebas simples"
-task :simple do
-  sh "ruby -I. test/tc_fraccion.rb -n /simple/"
+desc "Ejecutando las pruebas de identidad"
+task :identidad do
+  sh "ruby -I. test/tc_fraccion.rb -n /identidad/"
 end
-
