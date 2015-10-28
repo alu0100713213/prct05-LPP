@@ -6,13 +6,14 @@ class TestFraccion < Test::Unit::TestCase
     @first = Fraccion.new(5,10)
     @second = Fraccion.new(2,5)
     @third = Fraccion.new(-5,-10)
+    @four = Fraccion.new(20,50)
   end
   def test_identidad
     assert_equal("(5,10)", @first.to_s)    # Test de Identidad
   end
 
   def test_operaciones
-    assert_equal("(9,10)", (@first + @second).to_s)    # Test de Suma
+    assert_equal("(45,50)", (@first + @four).to_s)    # Test de Suma
     assert_equal("(1,10)", (@first - @second).to_s)    # Test de Resta
     assert_equal("(10,50)", (@first*@second).to_s)    # Test de Multiplicación
     assert_equal("(10,50)", (@first*@second).to_s)    # Test de División

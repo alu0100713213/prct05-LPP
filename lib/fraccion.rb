@@ -34,12 +34,9 @@ class Fraccion
 
 		# Función para sobrecargar el operador +
 		def +(object)
-			if(object.denominador != @denominador)
 				aux = mcm(@denominador, object.denominador)
-				return Fraccion.new((((aux*@numerador)/(@denominador))+(aux*object.numerador)/object.denominador),aux)
-			end
-		else
-			return Fraccion.new(@numerador+object.numerador, @denominador+object.denominador)
+				aux1 = Fraccion.new((((aux*@numerador)/(@denominador))+(aux*object.numerador)/object.denominador),aux)
+				return aux1
 		end
 
 		# Función para sobrecargar el operador -
@@ -81,4 +78,9 @@ class Fraccion
 			aux = gcd(a,b)
 			(a/aux)*b
 		end
+
+		def simplify()
+        aux = gcd(@numerador, @denominador)
+        Fraccion.new(@numerador/aux, @denominador/aux)
+    end
 end
